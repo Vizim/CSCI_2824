@@ -1,0 +1,263 @@
+\documentclass[9pt]{article}
+ 
+\def\solutions{1} %Change this '0' to a '1' in order for your solutions to appear if you choose to TeX your homework
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}    % needed for including graphics e.g. EPS, PS \usepackage{tikz}
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\usepackage{relsize}
+\usetikzlibrary{patterns,decorations.pathreplacing,shapes,arrows}
+\usepackage{algorithm2e}
+\topmargin -2.5cm        % read Lamport p.163
+\oddsidemargin -0.04cm   % read Lamport p.163
+\evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+\textwidth 16.59cm
+\textheight 25.94cm
+% \pagestyle{empty}        % Uncomment if don't want page numbers
+\pagenumbering{gobble}
+\parskip 7.2pt           % sets spacing between paragraphs
+%\renewcommand{\baselinestretch}{1.5} 	% Uncomment for 1.5 spacing between lines
+\parindent 0pt		  % sets leading space for paragraphs
+
+% No date in header
+\date{}
+
+\usepackage{hyperref}
+\hypersetup{
+   colorlinks=true,
+   linkcolor=blue,
+   filecolor=magenta,      
+   urlcolor=cyan,
+}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\lb}{\left[}
+\newcommand{\rb}{\right]}
+\newcommand{\ls}{\left\{}
+\newcommand{\rs}{\right\}}
+\newcommand{\lbar}{\left|}
+\newcommand{\rbar}{\right|}
+\newcommand{\ld}{\left.}
+\newcommand{\rd}{\right.}
+
+\newcommand{\myexists}{\exists \hspace{.3mm}}
+
+\newcommand{\hs}{\hspace{.75mm}}
+\newcommand{\bs}{\hspace{-.75mm}}
+\newcommand{\nin}{\noindent}
+
+\newcommand{\fx}{f\bs\left( x \right)}
+\newcommand{\gx}{g\bs\left( x \right)}
+\newcommand{\qx}{q\bs\left( x \right)}
+
+\newcommand{\nn}{\nonumber}
+
+\newcommand{\vfive}{\vspace{5mm}}
+\newcommand{\vthree}{\vspace{3mm}}
+
+\newcommand{\fof}[1]{f\lp #1\rp}
+\newcommand{\gof}[1]{g\lp #1\rp}
+\newcommand{\qof}[1]{q\lp #1\rp}
+
+\newcommand{\myp}[1]{\left( #1 \right)}
+\newcommand{\myb}[1]{\left[ #1 \right]}
+\newcommand{\mys}[1]{\left\{ #1 \right\}}
+\newcommand{\myab}[1]{\left| #1 \right|}
+
+\newcommand{\myj}{_j}
+\newcommand{\myjp}{_{j+1}}
+\newcommand{\myjm}{_{j-1}}
+
+\newcommand{\f}[1]{f\hspace{-1mm}\left( #1 \right)}
+\newcommand{\fp}[1]{f'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\g}[1]{g\hspace{-1mm}\left( #1 \right)}
+\newcommand{\gp}[1]{g'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\q}[1]{q\hspace{-1mm}\left( #1 \right)}
+\newcommand{\qp}[1]{q'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\Px}[1]{P\hspace{-1mm}\left( x_{#1} \right)}
+\newcommand{\Qx}[1]{Q\hspace{-1mm}\left( x_{#1} \right)}
+
+\newcommand{\tten}[1]{\times 10^{#1}}
+
+\newcommand{\aij}[1]{a_{#1}}
+\newcommand{\bij}[1]{b_{#1}}
+\newcommand{\rij}[1]{r_{#1}}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\newcommand{\ith}{i^{\textrm{th}}}
+\newcommand{\jth}{i^{\textrm{th}}}
+\newcommand{\kth}{i^{\textrm{th}}}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\xhat}{\hat{\mathbf{x}}}
+
+\newcommand{\beq}{\begin{eqnarray}}
+\newcommand{\eeq}{\end{eqnarray}}
+
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\bsq}{\mathsmaller{\blacksquare}}
+
+\newcommand{\iter}[1]{^{\myp{#1}}}
+
+% matrix macro
+\newcommand{\mymat}[1]{
+\left[
+\begin{array}{rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr}
+#1
+\end{array}
+\right]
+}
+
+\newcommand{\smallaug}[1]{
+\left[
+\begin{array}{rr|r}
+#1
+\end{array}
+\right]
+}
+
+
+% Actual document starts here
+% ======================================================================================
+\begin{document}
+
+\begin{minipage}{0.65\textwidth}
+\nin {\bf CSCI 2824 -- Spring 2022 } \\
+
+{\bf \underline{Name:} Zain Elsell}  %Replace 'XXXXXXX  XXXXXXX' in the previous { } with your name\\
+{\bf \underline{Student ID:} 109531375}  %Replace 'ZZZZZZZZZ' in the previous { } with your Student ID
+\end{minipage}\hfill
+\begin{minipage}{0.35\textwidth}
+\hfill {\bf Homework 1}%Replace the 'N' with the appropriate homework number} \\
+
+\end{minipage}
+
+% Actual text body starts here
+% ======================================================================================
+
+\vfive
+
+\nin This assignment is $\color{red}{\text{due on Friday, January 21 to Gradescope by 6PM}}$. Notice there are five questions to answer. You are expected to write or type up your solutions neatly.  Remember that you are encouraged to discuss problems with your classmates, but you must work and write your solutions on your own. 
+
+{\bf Important}: Make sure to clearly write your full name and your student ID number at the top of your assignment.   You may {\bf neatly} type your solutions in LaTeX for extra credit on the assignment. Make sure that your images/scans are clear or you will lose points/possibly be given a 0. Additionally, please be sure to $\color{blue}{\text{match the problems from the Gradescope outline}}$ to your uploaded images; $\color{red}{\text{no match = no points}}$.
+
+\vspace{5mm}
+
+
+\ben
+
+%==============================================================================
+% problem 1 goes below
+%==============================================================================
+
+\item Consider the following conditionals.\\
+\phantom{xx}For part [\color{red}{A}\color{black}] state their i) converse, ii) inverse, and iii) contrapositive.\\
+\phantom{xx}For part [\color{teal}{B}\color{black}] just state whether they are True or False.\\
+\\
+\begin{enumerate}
+\item[\color{red}{A1}] (6 points) "If it snows today, I will board tomorrow." \\
+\item [{a1)}] let p = "it snows today" and q = "I will board tomorrow"
+\item[{i}] $q  \to p$ 
+\item[{ii}]$ \lnot p \to \lnot q$
+\item[{iii}]$\lnot q \to \lnot p$ 
+\item[\color{red}{A2}] (6 points) "I come to class whenever there is going to be an exam."\\
+\item[{a2)}] let x = "I come to class" and y = " there is going to be an exam."
+\item[{i}] $y  \to x$ 
+\item[{ii}]$ \lnot x \to \lnot y$
+\item[{iii}]$\lnot y \to \lnot x p$ 
+
+\item[\color{red}{A3}] (6 points) "A positive integer is a prime only if it has no divisors other than 1 and itself."\\
+\item[{a3)}] let a = "A positive integer is prime", b = "it is divisible by one", and c = "it is divisible by itself"
+\item[{i}] $(c \wedge b)  \to a$ 
+\item[{ii}]$ \lnot a \to \lnot(b \wedge c)$
+\item[{iii}]$\lnot (b \wedge c) \to \lnot a$ 
+\end{enumerate}
+\begin{enumerate}
+\item[\color{teal}{B1}] (1 point) "If $3+2=5$, then $4-2=2$."\\
+
+\item[{B1}] "True"\\
+
+\item[\color{teal}{B2}] (1 point) "If $2+3=5$, then dinosaurs live at CU."\\
+
+\item[{B2}] "False, premise one is true but it doesn't support the conclusion."\\
+
+\item[\color{teal}{B3}] (1 point) "If $3+2=4$, then dinosaurs live at CU."\\ 
+
+\item[{B2}] False, premise one is false therefore the conclusion is false
+\end{enumerate}
+%==============================================================================
+% Problem 2 goes below
+%==============================================================================
+
+
+
+
+\vspace{5mm}
+
+\item Ralphie was rock climbing near Boulder. He brought back three chunks of granite to the CU museum of natural history. Sheila, the curator at the museum, asked Ralphie how much each stone weighed. Ralphie stated that the product of the stones' weights (measured to the nearest pound) was 72. Sheila said, "$\color{blue}{\text{That information doesn't reveal each of their individual weights though...}}$" Ralphie was in a hurry to get to the stadium and knew that Sheila was proficient with numbers, so to keep things short, and on the way out the door he mentioned to her that the weights (again rounded to the nearest pound) summed up to the number on her badge. Sheila looked at her badge and said, "$\color{blue}{\text{But that isn't enough information for me to know their weights!}}$" As the door closed, Ralphie said, "$\color{teal}{\text{By the way, the heaviest one is red granite, not pink granite.}}$" Sheila sighed a breath of relief because now she knew all three of the rocks' weights.\\
+\\
+i] (3 points) How much did the heaviest stone weigh?\\
+\\
+\item let x, y, z respectively represent the weights of each stone and also let b represent the number of the badge
+\item $xyz=72$ so we can start by finding factors of 72 by 3's. \\72 = 12 * 2 *3
+\\72 = 18 * 2 * 2
+\\72 = 9 * 4 * 2\\Keep in mind other factors exist but for the sake of space I won't list them all.
+
+We know that heaviest rock must be be red granite and not pink granite. Based on that statement we know that at least one of the lighter blocks of  granite must be  pink granite and not red granite. So we now know that the 
+-
+
+ii] (3 points) What is Sheila's badge number?\\
+\\
+%==============================================================================
+% Problem 3 goes below
+%==============================================================================
+\vspace{5mm}
+
+\item (3 points) Suppose you go to the C4C for some food. Upon arriving you see a red door and a blue door. The red door has a sign on it that reads, "There is \$1000 behind this door and behind the blue door is a poisonous snake." On the blue door there is a sign that reads, "Behind one of these doors there is \$1000, and in one of them there is a poisonous snake."\\
+You are deathly afraid of snakes and you would like \$1000. If you know that one of these signs is true and the other is false, then which door do you choose to get the \$1000?\\
+\\
+%==============================================================================
+% Problem 4 goes below
+%==============================================================================
+\vspace{5mm}
+\item Use truth tables or logical explanations to answer the following questions:\\
+\begin{enumerate}
+\item[(i)] (2 points) Is $(\neg q\land(p\to q))\to\neg p$ a tautology?\\
+\\
+\item[(ii)] (2 points) Are $(m\land n)\to p$ and $(m\to p)\land(n\to p)$ logically equivalent?\\
+\\
+\item[(iii)] (2 points) Is the following satisfiable?\\
+$(p\lor q\lor\neg r)\land(p\lor\neg q\lor\neg s)\land(p\lor\neg r\lor\neg s)\land(\neg p\lor\neg q\lor\neg s)\land(p\lor q\lor\neg s)$\\
+\end{enumerate}
+
+%==============================================================================
+% Problem 5 goes below
+%==============================================================================
+\vspace{5mm}
+\item Negate the following:\\
+(i) (1 point) $p\land q$\\
+\\
+(ii) (1 point) $p\to q$\\
+\\
+(iii) (1 point) $x\leq y$\\
+\\
+(iv) (1 point) $(p\land q)\lor(m\land n)$\\
+\\
+%========================================================================================================================
+\een 
+
+\end{document}

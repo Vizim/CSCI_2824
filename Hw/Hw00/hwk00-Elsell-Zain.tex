@@ -1,0 +1,216 @@
+ \documentclass[9pt]{article}
+ \usepackage{amsmath}
+ \usepackage{amssymb}
+ \usepackage{graphicx}    % needed for including graphics e.g. EPS, PS \usepackage{tikz}
+ \usepackage{tikz}
+ \usepackage{relsize}
+ \usetikzlibrary{patterns,decorations.pathreplacing,shapes,arrows}
+ \usepackage{algorithm2e}
+ \topmargin -2.5cm        % read Lamport p.163
+ \oddsidemargin -0.04cm   % read Lamport p.163
+ \evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+ \textwidth 16.59cm
+ \textheight 25.94cm
+% \pagestyle{empty}        % Uncomment if don't want page numbers
+ \pagenumbering{gobble}
+ \parskip 7.2pt           % sets spacing between paragraphs
+ %\renewcommand{\baselinestretch}{1.5} 	% Uncomment for 1.5 spacing between lines
+ \parindent 0pt		  % sets leading space for paragraphs
+
+% No date in header
+\date{}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\lb}{\left[}
+\newcommand{\rb}{\right]}
+\newcommand{\ls}{\left\{}
+\newcommand{\rs}{\right\}}
+\newcommand{\lbar}{\left|}
+\newcommand{\rbar}{\right|}
+\newcommand{\ld}{\left.}
+\newcommand{\rd}{\right.}
+
+\newcommand{\myexists}{\exists \hspace{.3mm}}
+
+\newcommand{\hs}{\hspace{.75mm}}
+\newcommand{\bs}{\hspace{-.75mm}}
+\newcommand{\nin}{\noindent}
+
+\newcommand{\fx}{f\bs\left( x \right)}
+\newcommand{\gx}{g\bs\left( x \right)}
+\newcommand{\qx}{q\bs\left( x \right)}
+
+\newcommand{\nn}{\nonumber}
+
+\newcommand{\vfive}{\vspace{5mm}}
+\newcommand{\vthree}{\vspace{3mm}}
+
+\newcommand{\fof}[1]{f\lp #1\rp}
+\newcommand{\gof}[1]{g\lp #1\rp}
+\newcommand{\qof}[1]{q\lp #1\rp}
+
+\newcommand{\myp}[1]{\left( #1 \right)}
+\newcommand{\myb}[1]{\left[ #1 \right]}
+\newcommand{\mys}[1]{\left\{ #1 \right\}}
+\newcommand{\myab}[1]{\left| #1 \right|}
+
+\newcommand{\myj}{_j}
+\newcommand{\myjp}{_{j+1}}
+\newcommand{\myjm}{_{j-1}}
+
+\newcommand{\f}[1]{f\hspace{-1mm}\left( #1 \right)}
+\newcommand{\fp}[1]{f'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\g}[1]{g\hspace{-1mm}\left( #1 \right)}
+\newcommand{\gp}[1]{g'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\q}[1]{q\hspace{-1mm}\left( #1 \right)}
+\newcommand{\qp}[1]{q'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\Px}[1]{P\hspace{-1mm}\left( x_{#1} \right)}
+\newcommand{\Qx}[1]{Q\hspace{-1mm}\left( x_{#1} \right)}
+
+\newcommand{\tten}[1]{\times 10^{#1}}
+
+\newcommand{\aij}[1]{a_{#1}}
+\newcommand{\bij}[1]{b_{#1}}
+\newcommand{\rij}[1]{r_{#1}}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\newcommand{\ith}{i^{\textrm{th}}}
+\newcommand{\jth}{i^{\textrm{th}}}
+\newcommand{\kth}{i^{\textrm{th}}}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\xhat}{\hat{\mathbf{x}}}
+
+\newcommand{\beq}{\begin{eqnarray}}
+\newcommand{\eeq}{\end{eqnarray}}
+
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\bsq}{\mathsmaller{\blacksquare}}
+
+\newcommand{\iter}[1]{^{\myp{#1}}}
+
+% matrix macro
+\newcommand{\mymat}[1]{
+\left[
+\begin{array}{rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr}
+#1
+\end{array}
+\right]
+}
+
+\newcommand{\smallaug}[1]{
+\left[
+\begin{array}{rr|r}
+#1
+\end{array}
+\right]
+}
+
+
+% Actual document starts here
+% ======================================================================================
+\begin{document}
+
+\begin{minipage}{0.85\textwidth}
+\nin {\bf CSCI 2824 -- Spring 2022 }
+\end{minipage}\hfill
+\begin{minipage}{0.15\textwidth}
+\nin \hfill {\bf Homework 0}
+\end{minipage}
+
+
+%\vfive
+
+\begin{center}\textbf{Read these instructions!}\end{center}
+
+\nin This assignment is \textbf{due on Friday, January 14 to Gradescope by 6 PM.}  You are expected to write up your solutions neatly, with {\bf full explanations and justifications} when necessary.  Remember that you are encouraged to discuss problems with your classmates, but you must work and write your solutions on your own. {\bf Important}: On the {\bf FRONT} of your assignment clearly write your full name and the lecture section you belong to.  You may upload your assignment as a pdf or as images of your work. Make sure that your images/scans are clear or you will lose points/possibly be given a 0.
+Also, if you do not match your questions on Gradescope, then no credit will be given.
+
+\ben
+
+% ======================================================================================
+% Question 1 here
+% ======================================================================================
+
+\item According to the syllabus: \\
+\\
+\ben
+\item[a] ) What is Piazza used for?\\
+\\
+\item[b] ) What is Gradescope used for?\\
+\\
+\item[c])  What is Zoom used for?\\
+\\
+\item[d] ) What is Canvas used for?\\
+\\
+\een
+\vspace{3mm}
+% ======================================================================================
+% Question 2 here
+% ======================================================================================
+
+% \vspace{2mm}
+\item Due dates:
+\ben
+\item[a]) What day and time is homework due every week?\\
+\\
+\item[b]) What day and time are quizzes open every week (except exam week)?\\
+\een
+% ======================================================================================
+% Question 3 here
+% ======================================================================================
+
+\item The following questions are about determining your grade:
+
+\ben
+\item What is the total amount of points available this semester and how can a student get 54/50 on homework?\\
+\\
+\item If you obtain 900 points by the end of the semester, then what would your grade percentage be?\\
+\\
+\een
+
+\vspace{3mm}
+
+% ======================================================================================
+% Question 4 here
+% ======================================================================================
+
+\item For this class, what programming language will we be coding in?\\
+\\
+
+\vspace{3mm}
+
+% ======================================================================================
+% Question 5 here
+% ======================================================================================
+
+\item On $\textbf{average}$, how many hours of out-of-class study time will generate a 'B' or 'C' grade in this course?\\
+\\
+
+\vspace{3mm}
+
+% ======================================================================================
+% Question 6 here
+% ======================================================================================
+
+\item Suppose at the end of the semester your grade is borderline between 2 different grades. Asking to be 'pushed up' will not get your grade changed, but what WILL get your grade boosted at that point?\\
+\\
+
+\vspace{5mm}
+
+
+\een
+
+\end{document}
